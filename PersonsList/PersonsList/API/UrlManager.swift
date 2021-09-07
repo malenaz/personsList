@@ -7,9 +7,9 @@
 
 import Foundation
 class UrlManager {
-    private static let person = "https://run.mocky.io/v3/12d17d3b-1922-484f-9ce4-6a01eeb5a07d"
+    private let persons = "https://run.mocky.io/v3/04caa897-ff19-4b59-ae51-cf17eec63cc1"
     
-    static func personPath() -> String {
-        return person
+    func personsPath() -> String {
+        return persons
     }
 }
