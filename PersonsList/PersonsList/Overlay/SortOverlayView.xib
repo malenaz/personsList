@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SortOverlayView" customModule="PersonsList" customModuleProvider="target">
+            <connections>
+                <outlet property="backgroundView" destination="UC0-3h-Pgz" id="m3A-jK-KbX"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="YmY-Ir-go3"/>
+                <outlet property="sortByDOB" destination="xcr-0j-izE" id="ZwI-a2-asY"/>
+                <outlet property="sortByLastName" destination="Bmi-5P-ScV" id="ARM-dp-mHb"/>
+                <outlet property="sortByName" destination="kJh-DM-vtK" id="MLj-4Y-8CB"/>
+                <outlet property="sortByUID" destination="BFF-NX-Bod" id="hgt-Wr-E03"/>
+                <outlet property="stackView" destination="hYa-19-wHc" id="ufD-yE-LWq"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="818" translatesAutoresizingMaskIntoConstraints="NO" id="UC0-3h-Pgz">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="hYa-19-wHc">
+                            <rect key="frame" x="25" y="348" width="364" height="200"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kJh-DM-vtK">
+                                    <rect key="frame" x="0.0" y="0.0" width="364" height="50"/>
+                                    <state key="normal" title="Sort by First Name"/>
+                                    <connections>
+                                        <action selector="sortBy:" destination="-1" eventType="touchUpInside" id="L1u-q7-zXb"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bmi-5P-ScV">
+                                    <rect key="frame" x="0.0" y="50" width="364" height="50"/>
+                                    <state key="normal" title="Sort by Last Name"/>
+                                    <connections>
+                                        <action selector="sortBy:" destination="-1" eventType="touchUpInside" id="COg-03-8RU"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xcr-0j-izE">
+                                    <rect key="frame" x="0.0" y="100" width="364" height="50"/>
+                                    <state key="normal" title="Sprt by DOB"/>
+                                    <connections>
+                                        <action selector="sortBy:" destination="-1" eventType="touchUpInside" id="qdR-bl-kpD"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BFF-NX-Bod">
+                                    <rect key="frame" x="0.0" y="150" width="364" height="50"/>
+                                    <state key="normal" title="Sprt by UID"/>
+                                    <connections>
+                                        <action selector="sortBy:" destination="-1" eventType="touchUpInside" id="KMx-iS-Udi"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="200" id="XNX-nU-G3H"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.1885968543046358" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="hYa-19-wHc" firstAttribute="centerY" secondItem="UC0-3h-Pgz" secondAttribute="centerY" id="Cbk-pc-kAc"/>
+                        <constraint firstItem="hYa-19-wHc" firstAttribute="leading" secondItem="UC0-3h-Pgz" secondAttribute="leading" constant="25" id="ODK-ND-nDG"/>
+                        <constraint firstAttribute="trailing" secondItem="hYa-19-wHc" secondAttribute="trailing" constant="25" id="qtr-b0-afF"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="UC0-3h-Pgz" secondAttribute="trailing" id="DZ4-Ec-9mC"/>
+                <constraint firstItem="UC0-3h-Pgz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="GKY-cM-DPR"/>
+                <constraint firstItem="UC0-3h-Pgz" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="eQo-Ir-dpW"/>
+                <constraint firstAttribute="bottom" secondItem="UC0-3h-Pgz" secondAttribute="bottom" id="iDX-Nd-3Tm"/>
+            </constraints>
+            <point key="canvasLocation" x="79.710144927536234" y="75"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

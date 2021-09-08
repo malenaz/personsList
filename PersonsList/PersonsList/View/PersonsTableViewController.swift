@@ -36,7 +36,9 @@ class PersonsTableViewController: UIViewController {
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 165/255, blue: 0, alpha: 1)
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 1, green: 1, blue: 1, alpha: 1)]
-        self.navigationItem.rightBarButtonItem = createNavigationButton()
+        //self.navigationItem.rightBarButtonItem = createNavigationButton()
+        let barButton = UIBarButtonItem(title: "Sort", style: .plain, target: self, action: #selector(openSortOverlay))
+        self.navigationItem.rightBarButtonItem = barButton
     }
     
     func createNavigationButton() -> UIBarButtonItem {
@@ -67,7 +69,10 @@ class PersonsTableViewController: UIViewController {
         }
         
     }
-    
+    @objc func openSortOverlay() {
+        let coordinator = SortOverlayCoordinator(presenter: UIApplication.shared.windows.filter {$0.isKeyWindow}.first!)
+        coordinator.start()
+    }
     private func showLoader() {
         DispatchQueue.main.async {
             Loader.shared.showLoader(view: self.tableView)

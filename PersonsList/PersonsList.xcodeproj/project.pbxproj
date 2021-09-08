@@ -11,6 +11,10 @@
 		0D1D213226E7F89200FD967F /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1D213126E7F89200FD967F /* NetworkSession.swift */; };
 		0D1D213426E7FB5100FD967F /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1D213326E7FB5100FD967F /* NetworkError.swift */; };
 		0D1D213A26E9447500FD967F /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1D213926E9447500FD967F /* Loader.swift */; };
+		0D1D213E26E95F2F00FD967F /* SortOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1D213D26E95F2F00FD967F /* SortOverlayView.swift */; };
+		0D1D214026E95F3C00FD967F /* SortOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D1D213F26E95F3C00FD967F /* SortOverlayView.xib */; };
+		0D1D214226E9649200FD967F /* SortOverlayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1D214126E9649200FD967F /* SortOverlayViewModel.swift */; };
+		0D1D214426E9653400FD967F /* SortOverlayCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1D214326E9653400FD967F /* SortOverlayCoordinator.swift */; };
 		0DF57B8A26E5F83D005838F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF57B8926E5F83D005838F7 /* AppDelegate.swift */; };
 		0DF57B8C26E5F83D005838F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF57B8B26E5F83D005838F7 /* SceneDelegate.swift */; };
 		0DF57B8E26E5F83D005838F7 /* PersonsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF57B8D26E5F83D005838F7 /* PersonsTableViewController.swift */; };
@@ -45,6 +49,10 @@
 		0D1D213126E7F89200FD967F /* NetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
 		0D1D213326E7FB5100FD967F /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		0D1D213926E9447500FD967F /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		0D1D213D26E95F2F00FD967F /* SortOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOverlayView.swift; sourceTree = "<group>"; };
+		0D1D213F26E95F3C00FD967F /* SortOverlayView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SortOverlayView.xib; sourceTree = "<group>"; };
+		0D1D214126E9649200FD967F /* SortOverlayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOverlayViewModel.swift; sourceTree = "<group>"; };
+		0D1D214326E9653400FD967F /* SortOverlayCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOverlayCoordinator.swift; sourceTree = "<group>"; };
 		0DF57B8626E5F83D005838F7 /* PersonsList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonsList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF57B8926E5F83D005838F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DF57B8B26E5F83D005838F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +104,17 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		0D1D213C26E95F1800FD967F /* Overlay */ = {
+			isa = PBXGroup;
+			children = (
+				0D1D213D26E95F2F00FD967F /* SortOverlayView.swift */,
+				0D1D213F26E95F3C00FD967F /* SortOverlayView.xib */,
+				0D1D214126E9649200FD967F /* SortOverlayViewModel.swift */,
+				0D1D214326E9653400FD967F /* SortOverlayCoordinator.swift */,
+			);
+			path = Overlay;
+			sourceTree = "<group>";
+		};
 		0DF57B7D26E5F83D005838F7 = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +138,7 @@
 		0DF57B8826E5F83D005838F7 /* PersonsList */ = {
 			isa = PBXGroup;
 			children = (
+				0D1D213C26E95F1800FD967F /* Overlay */,
 				0DF57BBB26E5FCA5005838F7 /* View */,
 				0DF57BBA26E5FCA0005838F7 /* Model */,
 				0DF57BB926E5FC99005838F7 /* API */,
@@ -283,6 +303,7 @@
 			files = (
 				0DF57B9626E5F840005838F7 /* LaunchScreen.storyboard in Resources */,
 				0DF57B9326E5F840005838F7 /* Assets.xcassets in Resources */,
+				0D1D214026E95F3C00FD967F /* SortOverlayView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,10 +334,13 @@
 				0DF57B8E26E5F83D005838F7 /* PersonsTableViewController.swift in Sources */,
 				0DF57BBD26E5FCB4005838F7 /* UrlManager.swift in Sources */,
 				0D1D213226E7F89200FD967F /* NetworkSession.swift in Sources */,
+				0D1D213E26E95F2F00FD967F /* SortOverlayView.swift in Sources */,
+				0D1D214226E9649200FD967F /* SortOverlayViewModel.swift in Sources */,
 				0D1D213426E7FB5100FD967F /* NetworkError.swift in Sources */,
 				0D1D213A26E9447500FD967F /* Loader.swift in Sources */,
 				0DF57B8A26E5F83D005838F7 /* AppDelegate.swift in Sources */,
 				0DF57B8C26E5F83D005838F7 /* SceneDelegate.swift in Sources */,
+				0D1D214426E9653400FD967F /* SortOverlayCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
