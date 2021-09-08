@@ -45,9 +45,9 @@ class PersonTableViewCell: UITableViewCell {
       return view
     }()
     
-    var person: Person? {
+    var viewModel: Person? {
             didSet {
-                guard let personItem = person else {
+                guard let personItem = viewModel else {
                     return
                     
                 }

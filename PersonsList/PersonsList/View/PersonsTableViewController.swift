@@ -36,19 +36,35 @@ class PersonsTableViewController: UIViewController {
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 165/255, blue: 0, alpha: 1)
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 1, green: 1, blue: 1, alpha: 1)]
+        self.navigationItem.rightBarButtonItem = createNavigationButton()
     }
     
-    func fetchData() {
+    func createNavigationButton() -> UIBarButtonItem {
+        let btn = UIButton()
+        btn.setImage(UIImage(named: "icon_sort"), for: .normal)
+        btn.setImage(UIImage(named: "icon_sort_highlighted"), for: .highlighted)
+        btn.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        btn.addTarget(self, action: #selector(fetchData), for: .touchUpInside)
+        let item = UIBarButtonItem()
+        item.customView = btn
+        return item
+    }
+    @objc func fetchData() {
+        DispatchQueue.main.async {
+            Loader.shared.showLoader(view: self.tableView)
+        }
         let apiRequest = APIRequest(networkSession: URLSession(configuration: .default))
         apiRequest.getData(from: UrlManager().personsPath()) { [weak self] (result: Result<[Person], NetworkError>) in
             guard let weakSelf = self else { return }
+            DispatchQueue.main.async {
+                Loader.shared.hideLoader(from: weakSelf.tableView)
+            }
             switch result {
             case .success(let model):
                 weakSelf.personList = model
                 DispatchQueue.main.async {
                     weakSelf.tableView.reloadData()
                 }
-                
             case .failure(let error):
                 print(error)
             }
@@ -64,7 +80,7 @@ extension PersonsTableViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "personCell", for: indexPath) as! PersonTableViewCell
-        cell.person = personList[indexPath.row]
+        cell.viewModel = personList[indexPath.row]
       return cell
     }
 }
