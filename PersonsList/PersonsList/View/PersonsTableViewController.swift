@@ -50,15 +50,11 @@ class PersonsTableViewController: UIViewController {
         return item
     }
     @objc func fetchData() {
-        DispatchQueue.main.async {
-            Loader.shared.showLoader(view: self.tableView)
-        }
+        showLoader()
         let apiRequest = APIRequest(networkSession: URLSession(configuration: .default))
         apiRequest.getData(from: UrlManager().personsPath()) { [weak self] (result: Result<[Person], NetworkError>) in
             guard let weakSelf = self else { return }
-            DispatchQueue.main.async {
-                Loader.shared.hideLoader(from: weakSelf.tableView)
-            }
+            weakSelf.hideLoader()
             switch result {
             case .success(let model):
                 weakSelf.personList = model
@@ -70,6 +66,17 @@ class PersonsTableViewController: UIViewController {
             }
         }
         
+    }
+    
+    private func showLoader() {
+        DispatchQueue.main.async {
+            Loader.shared.showLoader(view: self.tableView)
+        }
+    }
+    private func hideLoader() {
+        DispatchQueue.main.async {
+            Loader.shared.hideLoader(from: self.tableView)
+        }
     }
 }
 
