@@ -10,19 +10,27 @@ import UIKit
 
 protocol SortOverlayCoordinatorProtocol: AnyObject {
     func dismissOverlay()
-    func handleSort()
+    func handleSort(with model: [Person])
+}
+
+
+protocol SortedListProtocol: AnyObject  {
+    func handleSortedList(list: [Person])
 }
 
 class SortOverlayCoordinator: SortOverlayCoordinatorProtocol {
     
     private let presenter: UIWindow
+    private let personsList: [Person]
+    weak var delegate: SortedListProtocol?
     
-    init(presenter: UIWindow) {
+    init(presenter: UIWindow, list: [Person]) {
         self.presenter = presenter
+        self.personsList = list
     }
     
     func start() {
-        let viewModel = SortOverlayViewModel(with: self)
+        let viewModel = SortOverlayViewModel(with: self, list: personsList)
         let sortOverlayView = SortOverlayView(frame: UIScreen.main.bounds)
         sortOverlayView.viewModel = viewModel
         presenter.addSubview(sortOverlayView)
@@ -35,6 +43,8 @@ class SortOverlayCoordinator: SortOverlayCoordinatorProtocol {
         }
     }
     
-    func handleSort() {
+    func handleSort(with model: [Person]) {
+        dismissOverlay()
+        delegate?.handleSortedList(list: model)
     }
 }

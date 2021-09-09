@@ -41,8 +41,25 @@ class SortOverlayView : UIView {
         stackView.layer.shadowOffset = CGSize(width: 0.0, height: 0.5)
     }
     
-    @IBAction func sortBy(_ sender: Any) {
-        viewModel?.sort()
+    @IBAction func sortBy(_ sender: UIButton) {
+        let  type: SortType
+        switch sender {
+            case sortByName:
+                type = .firstName
+                break
+            case sortByLastName:
+                type = .lastName
+                break
+            case sortByDOB:
+                type = .dob
+                break
+            case sortByUID:
+                type = .uid
+                break
+        default:
+            type = .firstName
+        }
+        viewModel?.sortBy(type: type)
     }
     
 }

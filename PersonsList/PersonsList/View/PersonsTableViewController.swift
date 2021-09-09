@@ -36,21 +36,10 @@ class PersonsTableViewController: UIViewController {
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 165/255, blue: 0, alpha: 1)
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 1, green: 1, blue: 1, alpha: 1)]
-        //self.navigationItem.rightBarButtonItem = createNavigationButton()
         let barButton = UIBarButtonItem(title: "Sort", style: .plain, target: self, action: #selector(openSortOverlay))
         self.navigationItem.rightBarButtonItem = barButton
     }
     
-    func createNavigationButton() -> UIBarButtonItem {
-        let btn = UIButton()
-        btn.setImage(UIImage(named: "icon_sort"), for: .normal)
-        btn.setImage(UIImage(named: "icon_sort_highlighted"), for: .highlighted)
-        btn.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-        btn.addTarget(self, action: #selector(fetchData), for: .touchUpInside)
-        let item = UIBarButtonItem()
-        item.customView = btn
-        return item
-    }
     @objc func fetchData() {
         showLoader()
         let apiRequest = APIRequest(networkSession: URLSession(configuration: .default))
@@ -70,7 +59,8 @@ class PersonsTableViewController: UIViewController {
         
     }
     @objc func openSortOverlay() {
-        let coordinator = SortOverlayCoordinator(presenter: UIApplication.shared.windows.filter {$0.isKeyWindow}.first!)
+        let coordinator = SortOverlayCoordinator(presenter: UIApplication.shared.windows.filter {$0.isKeyWindow}.first!, list: personList)
+        coordinator.delegate = self
         coordinator.start()
     }
     private func showLoader() {
@@ -101,5 +91,14 @@ extension PersonsTableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
        return 100
+    }
+}
+
+extension PersonsTableViewController: SortedListProtocol {
+    func handleSortedList(list: [Person]) {
+        personList = list
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 }
