@@ -16,7 +16,6 @@
 		0D1D214226E9649200FD967F /* SortOverlayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1D214126E9649200FD967F /* SortOverlayViewModel.swift */; };
 		0D1D214426E9653400FD967F /* SortOverlayCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1D214326E9653400FD967F /* SortOverlayCoordinator.swift */; };
 		0DF57B8A26E5F83D005838F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF57B8926E5F83D005838F7 /* AppDelegate.swift */; };
-		0DF57B8C26E5F83D005838F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF57B8B26E5F83D005838F7 /* SceneDelegate.swift */; };
 		0DF57B8E26E5F83D005838F7 /* PersonsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF57B8D26E5F83D005838F7 /* PersonsTableViewController.swift */; };
 		0DF57B9326E5F840005838F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DF57B9226E5F840005838F7 /* Assets.xcassets */; };
 		0DF57B9626E5F840005838F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DF57B9426E5F840005838F7 /* LaunchScreen.storyboard */; };
@@ -55,7 +54,6 @@
 		0D1D214326E9653400FD967F /* SortOverlayCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOverlayCoordinator.swift; sourceTree = "<group>"; };
 		0DF57B8626E5F83D005838F7 /* PersonsList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonsList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF57B8926E5F83D005838F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0DF57B8B26E5F83D005838F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0DF57B8D26E5F83D005838F7 /* PersonsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonsTableViewController.swift; sourceTree = "<group>"; };
 		0DF57B9226E5F840005838F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0DF57B9526E5F840005838F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -144,7 +142,6 @@
 				0DF57BB926E5FC99005838F7 /* API */,
 				0D1D213B26E9486F00FD967F /* Util */,
 				0DF57B8926E5F83D005838F7 /* AppDelegate.swift */,
-				0DF57B8B26E5F83D005838F7 /* SceneDelegate.swift */,
 				0DF57B9226E5F840005838F7 /* Assets.xcassets */,
 				0DF57B9426E5F840005838F7 /* LaunchScreen.storyboard */,
 				0DF57B9726E5F840005838F7 /* Info.plist */,
@@ -339,7 +336,6 @@
 				0D1D213426E7FB5100FD967F /* NetworkError.swift in Sources */,
 				0D1D213A26E9447500FD967F /* Loader.swift in Sources */,
 				0DF57B8A26E5F83D005838F7 /* AppDelegate.swift in Sources */,
-				0DF57B8C26E5F83D005838F7 /* SceneDelegate.swift in Sources */,
 				0D1D214426E9653400FD967F /* SortOverlayCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -511,6 +507,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6XV8D93Z86;
 				INFOPLIST_FILE = PersonsList/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -530,6 +527,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6XV8D93Z86;
 				INFOPLIST_FILE = PersonsList/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

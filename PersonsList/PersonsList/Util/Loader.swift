@@ -20,7 +20,7 @@ class Loader {
     func showLoader(view: UIView) {
         hideLoader(from: view)
         loader = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
-        loader?.style = UIActivityIndicatorView.Style.large
+        loader?.style = UIActivityIndicatorView.Style.gray
         loader?.hidesWhenStopped = true;
         loader?.center = view.center
         view.addSubview(loader!)
